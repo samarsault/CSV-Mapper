@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stream name="ml1" format="csv">
+    <group name="orderGroup">
+        <!-- First Line -->
+        <record name="person">
+            <!-- Can contain only 4 seperated-values -->
+            <field name="Name"/>
+            <field name="Profession"/>
+            <field name="Country"/>
+            <field name="Age"/>
+        </record>
+    </group>
+</stream>

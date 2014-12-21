@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stream name="ml1" format="csv">
+    <group name="orderGroup" class="myclass">
+        <record name="rec">
+            <field name="type"/>
+            <field name="id"/>
+            <field name="date" format="yyyy-MM-dd"/>
+        </record>
+        <record name="customer">
+            <field name="type" />
+            <field name="firstName"/>
+            <field name="lastName"/>
+        </record>
+        <record name="foo_record">
+            <field name="f1"/>
+            <field name="f2"/>
+            <field name="f3"/>
+            <field name="integer_value"/>
+        </record>
+    </group>
+</stream>
