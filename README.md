@@ -51,3 +51,9 @@ A CSV File for the above mapper file would be
 10,3,17
 56
 ```
+
+License
+---
+The MIT License
+
+Made for Code-In
