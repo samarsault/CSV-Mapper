@@ -1,6 +1,6 @@
 # =============================
 #
-# CSV Mapper Parser
+# CSV-Mapper
 # Copyright (C) Samarjeet Singh
 #
 # =============================

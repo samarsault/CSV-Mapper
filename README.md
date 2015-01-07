@@ -3,6 +3,14 @@ CSV Mapper
 
 Python Module capable of parsing CSV files against a pre-defined mapper file.
 
+Installation
+---
+
+```sh
+git clone https://github.com/samarjeet27/CSV-Mapper
+python setup.py install
+```
+
 Example Code
 ---
 ```python
