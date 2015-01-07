@@ -1,8 +1,8 @@
-import csv_mapper
+import csvmapper
 
 csv_file = 'simple_record.csv'
 mapper = 'simple_mapper.csv'
-parser = csv_mapper.CSVParser(csv_file, mapper)
+parser = csvmapper.CSVParser(csv_file, mapper)
 
 items = parser.buildObject()
 

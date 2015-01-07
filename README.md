@@ -6,10 +6,10 @@ Python Module capable of parsing CSV files against a pre-defined mapper file.
 Example Code
 ---
 ```python
-import csv_mapper
+import csvmapper
 
 # create parser instance
-parser = csv_mapper.CSVParser(csv_file, mapper_file)
+parser = csvmapper.CSVParser(csv_file, mapper_file)
 
 # build object map
 items = parser.buildObject()

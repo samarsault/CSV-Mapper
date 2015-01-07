@@ -1,3 +1,3 @@
-import csv_mapper
+import csvmapper
 
-csv_mapper.tests.runAll()
+csvmapper.tests.runAll()
