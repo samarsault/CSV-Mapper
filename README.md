@@ -8,13 +8,18 @@ Example Code
 ```python
 import csv_mapper
 
+# create parser instance
 parser = csv_mapper.CSVParser(csv_file, mapper_file)
 
+# build object map
 items = parser.buildObject()
 
-print items[0].length # see below first record will be cuboid and have length, breadth and height
-print items[1].radius # see below second record will be a circle and have radius
+cube_dimensions = items[0]
+# calculate volume
+volume = cube_dimensions.length * cube_dimensions.breadth * cube_dimensions.height
 
+customer = items[1]
+print 'Welcome customer no. %g %s %s' %(customer.id, customer.firstName, customer.lastName)
 ```
 
 Mapper Format
@@ -29,12 +34,14 @@ A Mapper file is a pre-defined xml file.
     <group name="group_name">
     	<!-- Each line is treated as a record -->
         <record name="cuboid">
-            <field name="length"/>
-            <field name="breadth"/> <!-- Each Line Contains Comma-Seperated Fields -->
-            <field name="height"/>
+            <field name="length" type="int"/>
+            <field name="breadth type="int"/> <!-- Each Line Contains Comma-Seperated Fields -->
+            <field name="height" type="int"/>
         </record>
-        <record name="circle">
-        	<field name="radius"/>
+        <record name="customer">
+        	<field name="ID" type="long"/>
+        	<field name="firstName"/>
+        	<field name="lastName"/>
         </record>
     </group>
 </stream>
