@@ -7,7 +7,7 @@
             <field name="date" format="yyyy-MM-dd"/>
         </record>
         <record name="customer">
-            <field name="type" />
+            <field name="ID" type="long" />
             <field name="firstName"/>
             <field name="lastName"/>
         </record>
@@ -15,7 +15,7 @@
             <field name="f1"/>
             <field name="f2"/>
             <field name="f3"/>
-            <field name="integer_value"/>
+            <field name="integer_value" type="int"/>
         </record>
     </group>
 </stream>

@@ -22,15 +22,23 @@ class CSVParser(object):
 				x.append(row[0].split(','))
 			self.csvData = x
  	
+ 	# convert type
+ 	def convertType(self,to,val):
+ 		if to == '':
+ 			return val
+		i = ''
+		exec('i = %s(%s)' %(to,val))
+		return i
+
  	# convert csv data to record
  	def toDict(self, cdat, rec):
  		d = {}
  		i = 0
  		for j in rec:
  			a = cdat[i]
- 			if a.isdigit():
- 				a = int(a)
- 			d[j.values()[0]] = a
+ 			if 'type' in j:
+ 				a = self.convertType(j['type'], a)
+ 			d[j['name']] = a
  			i= i+1
 		return d
 
@@ -55,7 +63,7 @@ class CSVParser(object):
 
 
 def test():
-	parser = CSVParser('record_example.csv', 'mapper_example.xml')
+	parser = CSVParser('../record_example.csv', '../mapper_example.xml')
 	objs = parser.buildObject()
 	for i in range(0, len(objs)):
 		print 'Object no. %d propreties\n' %(i+1)
@@ -64,6 +72,7 @@ def test():
 
 	# check type of integer value
 	print type(objs[len(objs)-1].integer_value)
+	print type(objs[len(objs)-2].ID)
 
 if __name__ == '__main__':
 	test()
