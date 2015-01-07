@@ -7,8 +7,10 @@ Installation
 ---
 
 ```sh
-git clone https://github.com/samarjeet27/CSV-Mapper
-python setup.py install
+
+$ git clone https://github.com/samarjeet27/CSV-Mapper
+$ python setup.py install
+
 ```
 
 Example Code
@@ -42,14 +44,14 @@ A Mapper file is a pre-defined xml file.
     <group name="group_name">
     	<!-- Each line is treated as a record -->
         <record name="cuboid">
-            <field name="length" type="int"/>
-            <field name="breadth type="int"/> <!-- Each Line Contains Comma-Seperated Fields -->
-            <field name="height" type="int"/>
-        </record>
+            <field name="length" type="int" />
+            <field name="breadth type="int" /> <!-- Each Line Contains Comma-Seperated Fields -->
+            <field name="height" type="int" />
+        </record> 
         <record name="customer">
-        	<field name="ID" type="long"/>
-        	<field name="firstName"/>
-        	<field name="lastName"/>
+        	<field name="ID" type="long" />
+        	<field name="firstName" />
+        	<field name="lastName" />
         </record>
     </group>
 </stream>
