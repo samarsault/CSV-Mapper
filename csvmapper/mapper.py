@@ -67,13 +67,3 @@ class JSONMapper(Mapper):
 	def getRecords(self):
 		self.records = self.parse(self.jsonFile)
 		return self.records
-
-# Test File
-def test(m):
-	m.getRecords()
-	for rec in m.records:
-		print rec
-
-if __name__ == '__main__':
-	m = XMLMapper('../mapper-example.xml')
-	test(m)

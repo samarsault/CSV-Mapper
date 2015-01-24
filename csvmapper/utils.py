@@ -13,15 +13,3 @@ class CSVObject(object):
 
 	def attribs(self):
 		return self.d.keys()
-
-def test():
-	d = {'name':'samarjeet', 'age':10 ,'primes':[2,3,5,7,9]}
-	o = CSVObject(d)
-	print o.name
-	print o.age
-	print o.primes
-
-
-
-if __name__ == '__main__':
-	test()

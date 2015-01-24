@@ -59,20 +59,3 @@ class CSVParser(object):
 			dic = self.toDict(self.csvData[x], recs[i])
 			objs.append(utils.CSVObject(dic))
 		return objs
-
-
-def test():
-	xmap = mapper.XMLMapper('../mapper_example.xml')
-	parser = CSVParser('../record_example.csv', xmap)
-	objs = parser.buildObject()
-	for i in range(0, len(objs)):
-		print 'Object no. %d propreties\n' %(i+1)
-		for k in objs[i].attribs():
-			print 'object.%s = %s' %(k,objs[i].attrib(k))
-
-	# check type of integer value
-	print type(objs[len(objs)-1].integer_value)
-	print type(objs[len(objs)-2].ID)
-
-if __name__ == '__main__':
-	test()

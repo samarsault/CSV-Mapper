@@ -13,6 +13,3 @@ from mapper import Mapper
 
 # utils
 from utils import CSVObject
-
-# test it works fine
-import tests
