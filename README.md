@@ -5,11 +5,20 @@ Python Module capable of parsing CSV files against a pre-defined mapper file.
 
 Installation
 ---
-CSV-Mapper can be installed using pip
+CSV-Mapper can be installed using pip / easy_install
 
 ```sh
 
 $ pip install csvmapper
+
+```
+
+Another way, which installs the latest updated version is 
+
+```sh
+$ git clone http://github.com/samarjeet27
+$ cd CSV-Mapper
+$ python setup.py install
 
 ```
 
@@ -18,8 +27,11 @@ Example Code
 ```python
 import csvmapper
 
+# create mapper instance
+mapper = csvmapper.XMLMapper('mapper.xml')
+
 # create parser instance
-parser = csvmapper.CSVParser(csv_file, mapper_file)
+parser = csvmapper.CSVParser(csv_file, mapper)
 
 # build object map
 items = parser.buildObject()
@@ -35,7 +47,8 @@ print 'Welcome customer no. %g %s %s' %(customer.id, customer.firstName, custome
 Mapper Format
 ---
 
-A Mapper file is a pre-defined xml file.
+A Mapper file is pre-defined file/code, currently csv mapper supports JSON, XML and Python Code as mapper formats,
+however more can be added inheriting Mapper class
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -72,5 +85,3 @@ A CSV File for the above mapper file would be
 License
 ---
 The MIT License
-
-Made for Code-In
