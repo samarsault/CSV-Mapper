@@ -5,11 +5,11 @@ Python Module capable of parsing CSV files against a pre-defined mapper file.
 
 Installation
 ---
+CSV-Mapper can be installed using pip
 
 ```sh
 
-$ git clone https://github.com/samarjeet27/CSV-Mapper
-$ python setup.py install
+$ pip install csvmapper
 
 ```
 
