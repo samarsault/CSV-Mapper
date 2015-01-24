@@ -45,7 +45,7 @@ class XMLMapper(Mapper):
 
 """ Uses a python dictionary as mapper file"""
 class DictMapper(Mapper):
-	def __init__(self):
+	def __init__(self, d):
 		super(Mapper, self).__init__()
 		self.dictionary = d
 
