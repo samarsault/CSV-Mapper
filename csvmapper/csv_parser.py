@@ -4,14 +4,13 @@ import utils
 
 class CSVParser(object):
 	"""CSV Parser capable of parsing against a pre-defined mapper file"""
-	def __init__(self, csv_file, mapper_file):
+	def __init__(self, csv_file, fmapper):
 		super(CSVParser, self).__init__()
 		self.csv_file = csv_file
-		self.mapper_file = mapper_file
+		self.fmapper = fmapper
 		
 	def getRecords(self):
-		m = mapper.Mapper(self.mapper_file)
-		return m.getRecords()
+		return self.fmapper.getRecords()
 
 	# parses a CSV file
 	def parseCSV(self):
@@ -63,7 +62,8 @@ class CSVParser(object):
 
 
 def test():
-	parser = CSVParser('../record_example.csv', '../mapper_example.xml')
+	xmap = mapper.XMLMapper('../mapper_example.xml')
+	parser = CSVParser('../record_example.csv', xmap)
 	objs = parser.buildObject()
 	for i in range(0, len(objs)):
 		print 'Object no. %d propreties\n' %(i+1)
