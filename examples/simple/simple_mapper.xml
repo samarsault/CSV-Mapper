@@ -5,9 +5,9 @@
         <record name="person">
             <!-- Can contain only 4 seperated-values -->
             <field name="Name"/>
-            <field name="Profession"/>
+            <field name="Job"/>
             <field name="Country"/>
-            <field name="Age"/>
+            <field name="Age" type="int"/>
         </record>
     </group>
 </stream>
