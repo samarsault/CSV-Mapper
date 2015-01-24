@@ -1,6 +1,16 @@
+import json
 import xml.etree.ElementTree as ET
 
+""" Mapper base object """
 class Mapper(object):
+	def __init__(self):
+		super(Mapper, self).__init__()
+
+	def getRecords(self):
+		pass
+
+""" XML Mapper """
+class XMLMapper(Mapper):
 	""" An XML-Defined Mapper File for the CSV Parser"""
 	def __init__(self, path):
 		super(Mapper, self).__init__()
@@ -32,12 +42,38 @@ class Mapper(object):
 		self.parseFile()
 		return self.records
 
+
+""" Uses a python dictionary as mapper file"""
+class DictMapper(Mapper):
+	def __init__(self):
+		super(Mapper, self).__init__()
+		self.dictionary = d
+
+	def getRecords(self):
+		self.records = self.dictionary
+		return self.records
+
+""" JSON Based Mapper """
+class JSONMapper(Mapper):
+	def __init__(self, jsonFile):
+		self.jsonFile = jsonFile
+		super(Mapper, self).__init__()
+
+	def parse(self, jFile):
+		fs = open(jFile)
+		jt = fs.read()
+		return json.loads(jt)
+
+	def getRecords(self):
+		self.records = self.parse(self.jsonFile)
+		return self.records
+
 # Test File
-def test():
-	m = Mapper('mapper_example.xml')
-	m.parseFile()
+def test(m):
+	m.getRecords()
 	for rec in m.records:
 		print rec
 
 if __name__ == '__main__':
-	test()
+	m = XMLMapper('../mapper-example.xml')
+	test(m)
