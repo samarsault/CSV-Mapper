@@ -20,25 +20,25 @@ class CSVParser(object):
 			for row in rdr:
 				x.append(row[0].split(','))
 			self.csvData = x
- 	
- 	# convert type
- 	def convertType(self,to,val):
- 		if to == '':
- 			return val
+	
+	# convert type
+	def convertType(self,to,val):
+		if to == '':
+			return val
 		i = ''
 		exec('i = %s(%s)' %(to,val))
 		return i
 
- 	# convert csv data to record
- 	def toDict(self, cdat, rec):
- 		d = {}
- 		i = 0
- 		for j in rec:
- 			a = cdat[i]
- 			if 'type' in j:
- 				a = self.convertType(j['type'], a)
- 			d[j['name']] = a
- 			i= i+1
+	# convert csv data to record
+	def toDict(self, cdat, rec):
+		d = {}
+		i = 0
+		for j in rec:
+			a = cdat[i]
+			if 'type' in j:
+				a = self.convertType(j['type'], a)
+			d[j['name']] = a
+			i= i+1
 		return d
 
 	def getIndex(self, x, l):
