@@ -62,4 +62,3 @@ class JSONMapper(DictMapper):
 		fs = open(jFile)
 		jt = fs.read()
 		return json.loads(jt)
-
