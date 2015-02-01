@@ -4,6 +4,9 @@
 - JSONMapper uses DictMapper as subclass 
 - Added yaml-mapper sample
 
+0.245
+- Added ```buildDict``` method
+
 25 January, 2015
 ---
 0.22 - Fix dictionary param bug

@@ -46,16 +46,22 @@ class CSVParser(object):
 			return x%l
 		return x
 
-	def buildObject(self):
-		try:
-			self.csvData
-		except:
+	# as dict instance
+	def buildDict(self, onAppend=None):
+		if hasattr(self, 'csvData') == False:
 			self.parseCSV()
 		recs = self.getRecords()
 		l = len(recs)
-		objs = []
+		dicts = []
 		for x in range(0, len(self.csvData)):
 			i = self.getIndex(x, l)
 			dic = self.toDict(self.csvData[x], recs[i])
-			objs.append(utils.CSVObject(dic))
-		return objs
+			if onAppend == None:
+				dicts.append(dic)
+			else:
+				dicts.append(onAppend(dic))
+		return dicts
+
+	# as object instance
+	def buildObject(self):
+		return self.buildDict(utils.CSVObject)
