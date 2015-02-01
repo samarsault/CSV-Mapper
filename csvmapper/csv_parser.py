@@ -4,9 +4,9 @@ import utils
 
 class CSVParser(object):
 	"""CSV Parser capable of parsing against a pre-defined mapper file"""
-	def __init__(self, csv_file, fmapper):
+	def __init__(self, csvFile, fmapper):
 		super(CSVParser, self).__init__()
-		self.csv_file = csv_file
+		self.csvFile = csvFile
 		self.fmapper = fmapper
 		
 	def getRecords(self):
@@ -14,7 +14,7 @@ class CSVParser(object):
 
 	# parses a CSV file
 	def parseCSV(self):
-		with open(self.csv_file, 'rb') as csvfile:
+		with open(self.csvFile, 'rb') as csvfile:
 			rdr = csv.reader(csvfile, delimiter='\t', quotechar='|')
 			x = []
 			for row in rdr:
