@@ -8,7 +8,7 @@
 # the parser
 from csv_parser import CSVParser
 
-# add the mapper file
+# import all mappers
 from mapper import *
 
 # utils
