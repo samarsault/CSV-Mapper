@@ -8,7 +8,7 @@ class CSVParser(object):
 		super(CSVParser, self).__init__()
 		self.csvFile = csvFile
 		self.fmapper = fmapper
-		
+
 	def getRecords(self):
 		return self.fmapper.getRecords()
 
@@ -20,7 +20,7 @@ class CSVParser(object):
 			for row in rdr:
 				x.append(row[0].split(','))
 			self.csvData = x
-	
+
 	# convert type
 	def convertType(self,to,val):
 		if to == '':
@@ -65,3 +65,4 @@ class CSVParser(object):
 	# as object instance
 	def buildObject(self):
 		return self.buildDict(utils.CSVObject)
+
