@@ -54,16 +54,12 @@ class DictMapper(Mapper):
 		return self.records
 
 """ JSON Based Mapper """
-class JSONMapper(Mapper):
+class JSONMapper(DictMapper):
 	def __init__(self, jsonFile):
-		self.jsonFile = jsonFile
-		super(Mapper, self).__init__()
+		super(JSONMapper, self).__init__(self.parse(jsonFile))
 
 	def parse(self, jFile):
 		fs = open(jFile)
 		jt = fs.read()
 		return json.loads(jt)
 
-	def getRecords(self):
-		self.records = self.parse(self.jsonFile)
-		return self.records
