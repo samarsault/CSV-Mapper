@@ -31,6 +31,7 @@ A quick snippet to get you started -
 
 import csvmapper
 
+# can use csvmapper.JSONMapper, csvmapper.XMLMapper or custom mappers also
 mapper = csvmapper.DictMapper([
 	[ 
 		{ 'name': 'firstName' } , 
