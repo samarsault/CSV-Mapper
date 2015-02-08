@@ -1,3 +1,7 @@
+8 February, 2015
+---
+- Add CSV-JSON and CSV-XML converters
+
 1 February, 2015
 ---
 0.24 
