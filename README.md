@@ -22,10 +22,10 @@ $ python setup.py install
 
 ```
 
-Quick Start
+Basic Usage
 ---
 
-A quick snippet to get you started -
+A quick snippet to parse files with mapper -
 
 ```python
 
@@ -51,6 +51,14 @@ objects = parser.buildObject()
 print '%s will be %d years old after 2 years' %(objects[0].firstName, (objects[0].age + 2))
 ```
 
+Convert CSV
+
+```python
+import csvmapper
+# using same vars as above
+converter = csvmapper.JSONConverter(parser) # or XMLConverter
+print converter.doConvert(pretty=True)
+```
 
 License
 ---
