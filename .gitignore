@@ -1,4 +1,4 @@
-csvmapper/*.pyc
+*.pyc
 setup.cfg
 build
 dist
