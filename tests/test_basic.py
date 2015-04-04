@@ -6,8 +6,8 @@ import csvmapper
 class BasicTest(unittest.TestCase):
 
 	def setUp(self):
-		csvFile = os.path.abspath('data/sampleData.csv')
-		mapper = csvmapper.XMLMapper(os.path.abspath('data/mapper1.xml'))
+		csvFile = os.path.abspath('tests/data/sampleData.csv')
+		mapper = csvmapper.XMLMapper(os.path.abspath('tests/data/mapper1.xml'))
 		parser = csvmapper.CSVParser(csvFile, mapper)
 		self.obj = parser.buildObject()
 

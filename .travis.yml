@@ -5,6 +5,5 @@ python:
 install:
     - pip install csvmapper
 script:
-    - cd tests
-    - python -m unittest discover
+    - python run_tests.py
 sudo: true

@@ -6,8 +6,8 @@ import csvmapper
 class JSONMapTest(unittest.TestCase):
 
 	def setUp(self):
-		csvFile = os.path.abspath('data/sampleData.csv')
-		mapper = csvmapper.JSONMapper(os.path.abspath('data/mapper2.json'))
+		csvFile = os.path.abspath('tests/data/sampleData.csv')
+		mapper = csvmapper.JSONMapper(os.path.abspath('tests/data/mapper2.json'))
 		parser = csvmapper.CSVParser(csvFile, mapper)
 		self.obj = parser.buildObject()
 
