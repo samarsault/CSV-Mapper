@@ -2,7 +2,7 @@
 [![PyPI Downloads](https://img.shields.io/pypi/dm/csvmapper.svg)](https://pypi.python.org/pypi/csvmapper)
 CSV Mapper
 ===
-Easily manipulate csv files with python. Python Module capable of parsing CSV files against a pre-defined mapper file.
+Easily manipulate csv files with python. CSV Mapper is a python Module capable of parsing CSV files against a pre-defined mapper file, as well as converting between them.
 
 ![CSV-Mapper](http://oi61.tinypic.com/2qds6s1.jpg)
 
