@@ -1,2 +1,2 @@
-import test_basic
-import test_jsonmap
+from test_basic import BasicTest
+from test_jsonmap import JSONMapTest
