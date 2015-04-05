@@ -1,5 +1,12 @@
+5 April, 2015
+---
+0.26
+- Add hasHeaders argument to ```CSVParser(csvFile, mapper, hasHeaders) ```
+- Thus, mapper is optional now if hasHeaders is true
+
 8 February, 2015
 ---
+0.25
 - Add CSV-JSON and CSV-XML converters
 
 1 February, 2015
