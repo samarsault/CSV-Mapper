@@ -1,3 +1,4 @@
+import csv
 import json
 
 # Converts CSV to supported formats
@@ -9,7 +10,7 @@ class CSVConverter(object):
 
 	def doConvert(self):
 		pass
-
+		
 class JSONConverter(CSVConverter):
 	"""CSV->JSON Converter"""
 	def __init__(self, parser):

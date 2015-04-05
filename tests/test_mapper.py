@@ -18,3 +18,6 @@ class MapperTest(unittest.TestCase):
 	def test_parse(self):
 		self.Mapper.parseFile()
 		self.assertEqual(self.Mapper.records, [[ { 'name' : 'Name' }, { 'name' : 'Job' }, { 'name' : 'Country'}, { 'type':'int', 'name' : 'Age'}]])
+
+if __name__ == '__main__':
+	unittest.main()

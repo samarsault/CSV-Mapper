@@ -6,7 +6,7 @@
 # =============================
 
 # the parser
-from csv_parser import CSVParser
+from csv_parser import CSVParser, CSVWriter
 
 # import all mappers
 from mapper import *

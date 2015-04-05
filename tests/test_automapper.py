@@ -14,3 +14,6 @@ class AutoMapper(unittest.TestCase):
 		customers = self.parser.buildObject()
 		self.assertEqual(customers[1].Name, 'John')
 		self.assertEqual(customers[3].Item, 'Macbook')
+
+if __name__ == '__main__':
+	unittest.main()

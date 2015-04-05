@@ -89,3 +89,29 @@ class CSVParser(object):
 	def buildObject(self):
 		return self.buildDict(utils.CSVObject)
 
+
+# Parser instance to CSV
+class CSVWriter():
+	"""Generate CSV Output"""
+	def __init__(self, dic):
+		self.dic = dic
+
+	# write to csv file
+	def write(self, fileName):
+		isDict = type(self.dic[0]) == dict
+		with open(fileName, 'wb') as fs:
+			headings = None
+			if isDict:
+				headings = self.dic[0].keys()
+			else:
+				headings = self.dic[0].attribs()
+
+			w = csv.DictWriter(fs, headings)
+			w.writeheader()
+			if isDict:
+				for row in self.dic:
+					w.writerow(row)
+			else:
+				for row in self.dic:
+					w.writerow(row.asDict())
+

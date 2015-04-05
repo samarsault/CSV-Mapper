@@ -13,3 +13,6 @@ class CSVObject(object):
 
 	def attribs(self):
 		return self.d.keys()
+
+	def asDict(self):
+		return self.d

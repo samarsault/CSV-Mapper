@@ -16,3 +16,6 @@ class ObjectTest(unittest.TestCase):
 	def testObject(self):
 		self.assertEqual(self.object.name, 'john')
 		self.assertEqual(self.object.age, 14)
+
+if __name__ == '__main__':
+	unittest.main()
