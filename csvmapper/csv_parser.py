@@ -4,12 +4,22 @@ import utils
 
 class CSVParser(object):
 	"""CSV Parser capable of parsing against a pre-defined mapper file"""
-	def __init__(self, csvFile, fmapper):
+	def __init__(self, csvFile, fmapper=None, hasHeader=False):
 		super(CSVParser, self).__init__()
+		# the csv file
 		self.csvFile = csvFile
+		# the mapper object
 		self.fmapper = fmapper
+		# whether the csv file contains columns in the first row
+		self.hasHeader = hasHeader
 
+	# get records from mapper file
 	def getRecords(self):
+		if self.fmapper == None:
+			if self.hasHeader == False:
+				raise Exception('No mapper specified, set hasHeader=True if csv file contains headers')
+			else:
+				self.generateMapper()
 		return self.fmapper.getRecords()
 
 	# parses a CSV file
@@ -20,6 +30,14 @@ class CSVParser(object):
 			for row in rdr:
 				x.append(row[0].split(','))
 			self.csvData = x
+
+	# generate a mapper from first row column
+	def generateMapper(self):
+		colRow = self.csvData[0]
+		x = [ [ ] ] # supposed to be single row mapper
+		for r in colRow:
+			x[0].append( { 'name':r })
+		self.fmapper = mapper.DictMapper(x)
 
 	# convert type
 	def convertType(self,to,val):
@@ -46,11 +64,16 @@ class CSVParser(object):
 			return x%l
 		return x
 
-	# as dict instance
+	# csv against mapper as dict instance
 	def buildDict(self, onAppend=None):
 		if hasattr(self, 'csvData') == False:
 			self.parseCSV()
+
 		recs = self.getRecords()
+
+		if self.hasHeader:
+			self.csvData.pop(0) # remove the columns line
+
 		l = len(recs)
 		dicts = []
 		for x in range(0, len(self.csvData)):
