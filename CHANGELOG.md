@@ -4,6 +4,10 @@
 - Add hasHeaders argument to ```CSVParser(csvFile, mapper, hasHeaders) ```
 - Thus, mapper is optional now if hasHeaders is true
 
+0.265
+- Add CSVWriter class
+
+
 8 February, 2015
 ---
 0.25
