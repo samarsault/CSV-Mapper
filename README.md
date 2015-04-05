@@ -4,9 +4,6 @@ CSV Mapper
 ===
 Easily manipulate csv files with python. CSV Mapper is a python Module capable of parsing CSV files against a pre-defined mapper file, as well as converting between them.
 
-![CSV-Mapper](http://oi61.tinypic.com/2qds6s1.jpg)
-
-
 Installation
 ---
 CSV-Mapper can be installed using pip or easy_install
@@ -54,8 +51,25 @@ parser = csvmapper.CSVParser('data.csv', mapper)
 objects = parser.buildObject()
 print '%s will be %d years old after 2 years' %(objects[0].firstName, (objects[0].age + 2))
 ```
+if your file already as column headers and you don't worry about the type, you can use -
 
-Convert CSV
+```python
+csvmapper.CSVParser('data.csv', hasHeader=True)
+```
+
+Write CSV
+---
+
+```python
+# create parser
+parser = csvmapper.CSVParser()
+dictionary = parser.buildDict() # manipulation works for dict only at the moment
+# manipulate csv file
+writer = csvmapper.CSVWriter(dictionary) # or CSVObject instance
+writer.write('data.csv') # write(filename)
+```
+
+Convert CSV to JSON/XML
 
 ```python
 import csvmapper
