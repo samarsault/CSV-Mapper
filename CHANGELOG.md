@@ -1,3 +1,8 @@
+10 June 2016
+---
+0.27
+- Add FieldMapper which is used internally with hasHeader=True
+
 5 April, 2015
 ---
 0.26

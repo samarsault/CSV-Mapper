@@ -9,7 +9,27 @@ class Mapper(object):
 	def getRecords(self):
 		pass
 
-""" XML Mapper """
+
+""" Field Mapper(Comma Separated Fields) """
+class FieldMapper(Mapper):
+	def __init__(self, S):
+		super(Mapper, self).__init__()
+		if (type(S) == str):
+			S = S.split(',')
+		self.S = S
+
+	def generateMapper(self):
+		colRow = self.S
+		x = [ [ ] ] # supposed to be single row mapper
+		for r in colRow:
+			x[0].append( { 'name': r })
+		self.dmap = DictMapper(x)
+
+	def getRecords(self):
+		self.generateMapper()
+		return self.dmap.getRecords()
+
+""" XML Mapper (File) """
 class XMLMapper(Mapper):
 	""" An XML-Defined Mapper File for the CSV Parser"""
 	def __init__(self, path):

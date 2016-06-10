@@ -19,7 +19,7 @@ class CSVParser(object):
 			if self.hasHeader == False:
 				raise Exception('No mapper specified, set hasHeader=True if csv file contains headers')
 			else:
-				self.generateMapper()
+				self.fmapper = mapper.FieldMapper(self.csvData[0]) # first row of csv
 		return self.fmapper.getRecords()
 
 	# parses a CSV file
@@ -30,14 +30,6 @@ class CSVParser(object):
 			for row in rdr:
 				x.append(row[0].split(','))
 			self.csvData = x
-
-	# generate a mapper from first row column
-	def generateMapper(self):
-		colRow = self.csvData[0]
-		x = [ [ ] ] # supposed to be single row mapper
-		for r in colRow:
-			x[0].append( { 'name':r })
-		self.fmapper = mapper.DictMapper(x)
 
 	# convert type
 	def convertType(self,to,val):
@@ -70,7 +62,6 @@ class CSVParser(object):
 			self.parseCSV()
 
 		recs = self.getRecords()
-
 		if self.hasHeader:
 			self.csvData.pop(0) # remove the columns line
 
@@ -113,5 +104,4 @@ class CSVWriter():
 					w.writerow(row)
 			else:
 				for row in self.dic:
-					w.writerow(row.asDict())
-
+					w.writerow(row.__dict__)
