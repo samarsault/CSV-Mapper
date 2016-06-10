@@ -25,15 +25,27 @@ $ python setup.py install
 
 Basic Usage
 ---
+Using Field Mapper
 
-A quick snippet to parse files with mapper -
+```python
+from csvmapper import FieldMapper, CSVParser
+
+fields = ('firstName', 'lastName', 'age')
+
+# if csv file already has a header, use CSVParser('data.csv', hasHeader=True) instead
+parser = CSVParser('data.csv', FieldMapper(fields))
+
+data = parser.buildObject()
+```
+
+A quick snippet to parse files using a dictionary mapper (with type support) -
 
 ```python
 
 import csvmapper
 
 # can use csvmapper.JSONMapper, csvmapper.XMLMapper or custom mappers also
-mapper = csvmapper.DictMapper([
+mapper = csvmapper.FieldMapper(('firstName', ([
 	[ 
 		{ 'name': 'firstName' } , 
 		{ 'name' : 'lastName' }, 
