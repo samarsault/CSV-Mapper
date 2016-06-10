@@ -57,13 +57,13 @@ class CSVParser(object):
 		return x
 
 	# csv against mapper as dict instance
-	def buildDict(self, onAppend=None):
+	def buildDict(self, onAppend=None,popHeader=True):
 		if hasattr(self, 'csvData') == False:
 			self.parseCSV()
 
 		recs = self.getRecords()
-		if self.hasHeader:
-			self.csvData.pop(0) # remove the columns line
+		if self.hasHeader and popHeader:
+			self.csvData.pop(0) # remove the header line
 
 		l = len(recs)
 		dicts = []
