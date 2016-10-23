@@ -24,7 +24,7 @@ class CSVParser(object):
 
 	# parses a CSV file
 	def parseCSV(self):
-		with open(self.csvFile, 'rb') as csvfile:
+		with open(self.csvFile, 'rU') as csvfile:
 			rdr = csv.reader(csvfile, delimiter='\t', quotechar='|')
 			x = []
 			for row in rdr:
