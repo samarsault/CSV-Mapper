@@ -81,11 +81,12 @@ writer.write('data.csv') # write(filename)
 ```
 
 Convert CSV to JSON/XML
+---
 
 ```python
 import csvmapper
 # using same vars as above
-converter = csvmapper.JSONConverter(parser) # or XMLConverter
+converter = csvmapper.JSONConverter(parser) # or csvmapper.XMLConverter
 print converter.doConvert(pretty=True)
 ```
 
