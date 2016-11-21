@@ -34,7 +34,7 @@ fields = ('firstName', 'lastName', 'age')
 # if csv file already has a header, use CSVParser('data.csv', hasHeader=True) instead
 parser = CSVParser('data.csv', FieldMapper(fields))
 
-data = parser.buildObject()
+data = parser.buildObject() # or parser.buildDict() for a dictionary
 ```
 
 A quick snippet to parse files using a dictionary mapper (with type support) -
