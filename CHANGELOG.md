@@ -1,3 +1,9 @@
+20 November 2016
+---
+0.3
+- Improved Unicode Support
+- Improve Tests
+
 10 June 2016
 ---
 0.27
