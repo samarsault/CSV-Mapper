@@ -16,7 +16,7 @@ $ pip install csvmapper
 Another way, which installs the latest updated version is 
 
 ```sh
-$ git clone http://github.com/samarjeet27
+$ git clone http://github.com/samarjeet27/CSV-Mapper
 $ cd CSV-Mapper
 $ python setup.py install
 
