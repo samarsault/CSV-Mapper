@@ -96,9 +96,8 @@ class CSVWriter():
 				headings = self.dic[0].keys()
 			else:
 				headings = self.dic[0].attribs()
-
 			w = csv.DictWriter(fs, headings)
-			w.writeheader()
+                        w.writerow( dict((fn,fn) for fn in headings))
 			if isDict:
 				for row in self.dic:
 					w.writerow(row)
