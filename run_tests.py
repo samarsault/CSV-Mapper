@@ -1,3 +1,4 @@
+import sys
 import glob
 import unittest
 
@@ -11,3 +12,8 @@ def create_test_suite():
 
 testSuite = create_test_suite()
 test_runner = unittest.TextTestRunner().run(testSuite)
+
+if len(test_runner.failures) == 0 and len(test_runner.errors) == 0:
+    sys.exit(0)
+else:
+    sys.exit(1)
