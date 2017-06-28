@@ -3,3 +3,5 @@ setup.cfg
 build
 dist
 MANIFEST
+.ropeproject
+.idea
