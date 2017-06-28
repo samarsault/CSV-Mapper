@@ -1,13 +1,11 @@
 import csv
 import mapper
 import utils
-import io
 
 def get_data(rdr):
 	x = []
 	for row in rdr:
 		x.append(row[0].split(','))
-	#self.csvData = x
 	return x
 
 class CSVParser(object):
@@ -23,7 +21,7 @@ class CSVParser(object):
 
 	# get records from mapper file
 	def getRecords(self):
-		if self.fmapper == None:
+		if self.fmapper is None:
 			if self.hasHeader == False:
 				raise Exception('No mapper specified, set hasHeader=True if csv file contains headers')
 			else:
@@ -68,12 +66,12 @@ class CSVParser(object):
 		return x
 
 	# csv against mapper as dict instance
-	def buildDict(self, fromStr=False, onAppend=None,popHeader=False):
+	def buildDict(self, fromStr=False, onAppend=None):
 		if hasattr(self, 'csvData') == False:
 			self.parseCSV(fromStr)
 
 		recs = self.getRecords()
-		if  self.hasHeader or popHeader:
+		if  self.hasHeader:
 			self.csvData.pop(0) # remove the header line
 
 		l = len(recs)
@@ -88,8 +86,8 @@ class CSVParser(object):
 		return dicts
 
 	# as object instance
-	def buildObject(self):
-		return self.buildDict(utils.CSVObject)
+	def buildObject(self,fromStr=False):
+		return self.buildDict(fromStr, utils.CSVObject)
 
 
 # Parser instance to CSV
@@ -108,7 +106,7 @@ class CSVWriter():
 			else:
 				headings = self.dic[0].attribs()
 			w = csv.DictWriter(fs, headings)
-			
+
 			if writeHeader:
 				w.writeheader()
 
