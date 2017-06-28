@@ -1,6 +1,14 @@
 import csv
 import mapper
 import utils
+import io
+
+def get_data(rdr):
+	x = []
+	for row in rdr:
+		x.append(row[0].split(','))
+	#self.csvData = x
+	return x
 
 class CSVParser(object):
 	"""CSV Parser capable of parsing against a pre-defined mapper file"""
@@ -22,14 +30,17 @@ class CSVParser(object):
 				self.fmapper = mapper.FieldMapper(self.csvData[0]) # first row of csv
 		return self.fmapper.getRecords()
 
+
 	# parses a CSV file
-	def parseCSV(self):
-		with open(self.csvFile, 'rU') as csvfile:
-			rdr = csv.reader(csvfile, delimiter='\t', quotechar='|')
-			x = []
-			for row in rdr:
-				x.append(row[0].split(','))
-			self.csvData = x
+	def parseCSV(self, fromStr=False):
+		if fromStr==True:
+			rdr = csv.reader(self.csvFile.splitlines(),delimiter='\t', quotechar='|')
+			self.csvData = get_data(rdr)
+		else:
+			with open(self.csvFile, 'rU') as csvfile:
+				rdr = csv.reader(csvfile, delimiter='\t', quotechar='|')
+				self.csvData = get_data(rdr)
+
 
 	# convert type
 	def convertType(self,to,val):
@@ -57,12 +68,12 @@ class CSVParser(object):
 		return x
 
 	# csv against mapper as dict instance
-	def buildDict(self, onAppend=None,popHeader=True):
+	def buildDict(self, fromStr=False, onAppend=None,popHeader=False):
 		if hasattr(self, 'csvData') == False:
-			self.parseCSV()
+			self.parseCSV(fromStr)
 
 		recs = self.getRecords()
-		if self.hasHeader and popHeader:
+		if  self.hasHeader or popHeader:
 			self.csvData.pop(0) # remove the header line
 
 		l = len(recs)
@@ -88,7 +99,7 @@ class CSVWriter():
 		self.dic = dic
 
 	# write to csv file
-	def write(self, fileName):
+	def write(self, fileName, writeHeader=True):
 		isDict = type(self.dic[0]) == dict
 		with open(fileName, 'wb') as fs:
 			headings = None
@@ -97,7 +108,10 @@ class CSVWriter():
 			else:
 				headings = self.dic[0].attribs()
 			w = csv.DictWriter(fs, headings)
-                        w.writerow( dict((fn,fn) for fn in headings))
+			
+			if writeHeader:
+				w.writeheader()
+
 			if isDict:
 				for row in self.dic:
 					w.writerow(row)
