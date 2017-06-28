@@ -21,7 +21,6 @@ class WriterTest(unittest.TestCase):
 		for i in range(0, len(obj)):
 			a = obj[i]['SN']
 			b = old[i]['ID'] + '(' + old[i]['Name'] + ')'
-			print '%s %s' %(a,b)
 			self.assertEqual(a, b)
 
 if __name__ == '__main__':
