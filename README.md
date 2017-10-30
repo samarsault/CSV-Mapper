@@ -44,7 +44,7 @@ A quick snippet to parse files using a dictionary mapper (with type support) -
 import csvmapper
 
 # can use csvmapper.JSONMapper, csvmapper.XMLMapper or custom mappers also
-mapper = csvmapper.FieldMapper(('firstName', ([
+mapper = csvmapper.DictMapper([
 	[ 
 		{ 'name': 'firstName' } , 
 		{ 'name' : 'lastName' }, 
@@ -59,8 +59,8 @@ mapper = csvmapper.FieldMapper(('firstName', ([
 # Harry,Potter,28
 
 parser = csvmapper.CSVParser('data.csv', mapper)
-objects = parser.buildObject()
-print '%s will be %d years old after 2 years' %(objects[0].firstName, (objects[0].age + 2))
+people = parser.buildObject()
+print '%s will be %d years old after 2 years' %(people[0].firstName, (people[0].age + 2))
 ```
 if your file already as column headers and you don't worry about the type, you can use -
 
