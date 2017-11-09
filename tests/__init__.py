@@ -4,8 +4,8 @@
 #
 # ------------------------
 
-from test_basic import BasicTest
-from test_jsonmap import JSONMapTest
-from test_mapper import MapperTest
-from test_object import ObjectTest
-from test_automapper import AutoMapper
+from tests.test_basic import BasicTest
+from tests.test_jsonmap import JSONMapTest
+from tests.test_mapper import MapperTest
+from tests.test_object import ObjectTest
+from tests.test_automapper import AutoMapper
