@@ -1,6 +1,12 @@
 import csv
-import mapper
-import utils
+import sys
+
+if sys.version_info[0] == 3:
+	from csvmapper import utils, mapper
+else:
+	import mapper
+	import utils
+
 
 def get_data(rdr):
 	x = []
