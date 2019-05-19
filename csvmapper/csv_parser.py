@@ -14,6 +14,10 @@ def get_data(rdr):
 		x.append(row[0].split(','))
 	return x
 
+# valid types for casting
+types = [ int, float, bool, complex ]
+type_names = [ t.__name__ for t in types ]
+
 class CSVParser(object):
 	"""CSV Parser capable of parsing against a pre-defined mapper file"""
 	def __init__(self, csvFile, fmapper=None, hasHeader=False):
@@ -47,12 +51,11 @@ class CSVParser(object):
 
 
 	# convert type
-	def convertType(self,to,val):
-		if to == '':
-			return val
-		i = ''
-		exec('i = %s(%s)' %(to,val))
-		return i
+	def convertType(self, to, val):
+		if to in type_names:
+			index = type_names.index(to)
+			return types[index](val)
+		return val
 
 	# convert csv data to record
 	def toDict(self, cdat, rec):
