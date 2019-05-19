@@ -8,7 +8,7 @@
 from distutils.core import setup
 
 setup(name='csvmapper',
-      version='0.6',
+      version='0.7',
       description='CSV parser using pre-defined mapper file',
       author='Samarjeet Singh',
       author_email='hi@samarjeet.me',
