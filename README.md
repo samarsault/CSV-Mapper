@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/samarsault/CSV-Mapper.svg?branch=master)](https://travis-ci.org/thelehhman/CSV-Mapper)
+[![Build Status](https://travis-ci.org/samarsault/CSV-Mapper.svg?branch=master)](https://travis-ci.org/samarsault/CSV-Mapper)
 CSV Mapper
 ===
 Easily manipulate csv files with python. CSV Mapper is a python Module capable of parsing CSV files against a pre-defined mapper file, as well as converting between them.
